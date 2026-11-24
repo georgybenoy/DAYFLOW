@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-main: #07120F;
+    --surface-main: #101D18;
+    --surface-elevated: #172720;
+    --surface-variant: #20342B;
+    --border-color: #263A32;
+    --primary-mint: #A5E6D6;
+    --secondary-mint: #76CDBB;
+    --accent-yellow: #F0E99B;
+    --accent-lavender: #DCC3F5;
+    --text-primary: #F1F5EF;
+    --text-secondary: #A5B6AD;
+    --text-muted: #71847A;
+    --error-color: #F28D91;
+    --warning-color: #F1C879;
+    --safe-area-top: env(safe-area-inset-top, 0px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #07120F;
+}
+::-webkit-scrollbar-thumb {
+  background: #20342B;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #263A32;
+}
+
+/* Smooth transitions */
+* {
+  border-color: #263A32;
+}
+
+input, select, textarea {
+  background-color: #20342B;
+  color: #F1F5EF;
+  border: 1px solid #263A32;
+  border-radius: 12px;
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #A5E6D6;
+  ring: 1px solid #A5E6D6;
+}
