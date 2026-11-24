@@ -6,7 +6,8 @@
   <br />
 
   [![Offline First](https://img.shields.io/badge/Architecture-100%25_Offline--First-10b981?style=for-the-badge&logo=offline&logoColor=white)](ARCHITECTURE.md)
-  [![Platform](https://img.shields.io/badge/Platform-Web_%7C_Android_APK-A5E6D6?style=for-the-badge&logo=android&logoColor=07120F)](DayFlow.apk)
+  [![Latest Release](https://img.shields.io/badge/Release-v1.0.0-29D67A?style=for-the-badge&logo=github&logoColor=white)](https://github.com/georgybenoy/DAYFLOW/releases/tag/v1.0.0)
+  [![Download APK](https://img.shields.io/badge/Download_APK-v1.0.0_(4.41_MB)-38E1E5?style=for-the-badge&logo=android&logoColor=07120F)](https://github.com/georgybenoy/DAYFLOW/releases/download/v1.0.0/DayFlow.apk)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](tsconfig.json)
   [![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](src/App.tsx)
   [![Vite](https://img.shields.io/badge/Vite-6.1-646CFF?style=for-the-badge&logo=vite&logoColor=white)](vite.config.ts)
@@ -168,9 +169,10 @@ npm run build
 
 A pre-packaged, debug-signed, immediately installable Android APK is available in the root repository:
 
-| Artifact | File | Size | SHA-256 Checksum |
-|---|---|---|---|
-| **Direct APK** | [DayFlow.apk](DayFlow.apk) | 4.33 MB | `180375DC25C0ADA1164E7D787BA78BD628239FB636C4734AD389407AABCF32A9` |
+| Artifact | File | Size | SHA-256 Checksum | Release |
+|---|---|---|---|---|
+| **Direct APK** | [DayFlow.apk](DayFlow.apk) | 4.41 MB | `F8369CF44231F261D1FDBD8BEC8E23B2D9CE8EADBC2DB7D387F8EBFD1061E58D` | [v1.0.0](https://github.com/georgybenoy/DAYFLOW/releases/tag/v1.0.0) |
+| **GitHub Release Download** | [Download DayFlow.apk (v1.0.0)](https://github.com/georgybenoy/DAYFLOW/releases/download/v1.0.0/DayFlow.apk) | 4.41 MB | `F8369CF44231F261D1FDBD8BEC8E23B2D9CE8EADBC2DB7D387F8EBFD1061E58D` | [Assets](https://github.com/georgybenoy/DAYFLOW/releases/latest) |
 
 ### Install via ADB
 ```bash
