@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!--
+        android:allowBackup is explicitly disabled to prevent automatic Google Drive cloud
+        sync of private SQLite and DataStore databases, preserving DayFlow's 100% offline,
+        zero-network data privacy guarantee. DayFlow provides user-controlled, transactional
+        local snapshot archives and Storage Access Framework ZIP export/import instead.
+    -->
+    <application
+        android:name=".DayflowApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Material.NoActionBar">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Material.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- WorkManager initialization through Hilt Configuration.Provider -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
+
+        <!-- Alarm & Notification Receivers -->
+        <receiver
+            android:name=".scheduling.receiver.AlarmReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.dayflow.app.action.ALARM_TRIGGER" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".notifications.NotificationActionReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.dayflow.app.action.COMPLETE" />
+                <action android:name="com.dayflow.app.action.SNOOZE" />
+                <action android:name="com.dayflow.app.action.SKIP" />
+                <action android:name="com.dayflow.app.action.DISMISS" />
+            </intent-filter>
+        </receiver>
+
+        <!-- System Event Receivers -->
+        <receiver
+            android:name=".scheduling.receiver.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".scheduling.receiver.TimeChangeReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".scheduling.receiver.ExactAlarmPermissionReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".scheduling.receiver.PackageReplacedReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
