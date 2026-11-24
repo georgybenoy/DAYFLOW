@@ -1,0 +1,33 @@
+*.iml
+.gradle
+/build
+/*/build
+/local.properties
+*/local.properties
+.idea
+.DS_Store
+/captures
+.externalNativeBuild
+.cxx
+.kotlin
+
+# Node & Web build
+node_modules/
+dist/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+*.log
+
+# Temp dumps and debug captures
+/*.png
+*_dump.xml
+*dump.xml
+damp-windows-x64.zip
+
+# Release Keystores & Secrets
+keystore.properties
+*.jks
+*.keystore
