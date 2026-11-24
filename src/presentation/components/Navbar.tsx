@@ -19,8 +19,8 @@ export const Navbar: React.FC = () => {
           onClick={() => setActiveScreen('today')}
           className="flex items-center gap-2.5 cursor-pointer group"
         >
-          <div className="w-8 h-8 rounded-xl bg-accent-mint/10 border border-accent-mint/20 flex items-center justify-center text-accent-mint group-hover:scale-105 transition-transform">
-            <Sparkles size={16} />
+          <div className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-105 transition-transform p-1.5">
+            <img src="/favicon.svg" alt="DAYFLOW" className="w-full h-full object-contain" />
           </div>
           <div>
             <div className="flex items-center gap-1.5">
